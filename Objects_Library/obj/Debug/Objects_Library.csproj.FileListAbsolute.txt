@@ -1,0 +1,6 @@
+C:\Users\Ромчик\Desktop\ИТ\Practice\Objects_Library\Objects_Library\bin\Debug\Objects_Library.exe.config
+C:\Users\Ромчик\Desktop\ИТ\Practice\Objects_Library\Objects_Library\bin\Debug\Objects_Library.exe
+C:\Users\Ромчик\Desktop\ИТ\Practice\Objects_Library\Objects_Library\bin\Debug\Objects_Library.pdb
+C:\Users\Ромчик\Desktop\ИТ\Practice\Objects_Library\Objects_Library\obj\Debug\Objects_Library.csprojResolveAssemblyReference.cache
+C:\Users\Ромчик\Desktop\ИТ\Practice\Objects_Library\Objects_Library\obj\Debug\Objects_Library.exe
+C:\Users\Ромчик\Desktop\ИТ\Practice\Objects_Library\Objects_Library\obj\Debug\Objects_Library.pdb

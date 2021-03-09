@@ -1,0 +1,9 @@
+C:\Users\Ромчик\Desktop\ИТ\Practice\Objects_Library\Tests\bin\Debug\Tests.dll
+C:\Users\Ромчик\Desktop\ИТ\Practice\Objects_Library\Tests\bin\Debug\Tests.pdb
+C:\Users\Ромчик\Desktop\ИТ\Practice\Objects_Library\Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\Ромчик\Desktop\ИТ\Practice\Objects_Library\Tests\bin\Debug\Objects_Library.exe
+C:\Users\Ромчик\Desktop\ИТ\Practice\Objects_Library\Tests\bin\Debug\Objects_Library.pdb
+C:\Users\Ромчик\Desktop\ИТ\Practice\Objects_Library\Tests\bin\Debug\ru\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
+C:\Users\Ромчик\Desktop\ИТ\Practice\Objects_Library\Tests\obj\Debug\Tests.csprojResolveAssemblyReference.cache
+C:\Users\Ромчик\Desktop\ИТ\Practice\Objects_Library\Tests\obj\Debug\Tests.dll
+C:\Users\Ромчик\Desktop\ИТ\Practice\Objects_Library\Tests\obj\Debug\Tests.pdb
