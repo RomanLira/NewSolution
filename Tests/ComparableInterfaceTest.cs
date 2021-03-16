@@ -43,22 +43,22 @@ namespace Tests
             Array.Sort(_figuresArray, new CompareArea());
         }
 
-        private bool Sort(BaseFigure[] array, SortingArguments arg)
+        private bool Sort(SortingArguments arg)
         {
-            if (array == null)
+            if (_figuresArray == null)
                 throw new ArgumentException("Array cannot be null.");
             else
             {
-                for (int i = 1; i < array.Length; i++)
+                for (int i = 1; i < _figuresArray.Length; i++)
                 {
                     if (arg == SortingArguments.Perimeter)
                     {
-                        if (array[i - 1].Perimeter() > array[i].Perimeter())
+                        if (_figuresArray[i - 1].Perimeter() > _figuresArray[i].Perimeter())
                             return false;
                     }
                     else
                     {
-                        if (array[i - 1].Area() > array[i].Area())
+                        if (_figuresArray[i - 1].Area() > _figuresArray[i].Area())
                             return false;
                     }
                 }
@@ -89,7 +89,7 @@ namespace Tests
         {
             SortByPerimeter();
             Print(SortingArguments.Perimeter);
-            Assert.IsTrue(Sort(_figuresArray, SortingArguments.Perimeter));
+            Assert.IsTrue(Sort(SortingArguments.Perimeter));
         }
 
         [TestMethod]
@@ -97,7 +97,7 @@ namespace Tests
         {
             SortByArea();
             Print(SortingArguments.Area);
-            Assert.IsTrue(Sort(_figuresArray, SortingArguments.Area));
+            Assert.IsTrue(Sort(SortingArguments.Area));
         }
     }
 }
