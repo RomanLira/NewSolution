@@ -49,15 +49,11 @@ namespace Tests
             var Availability2 = _products.Any(product => product.Number == 0);
             if (Availability1)
             {
-                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("All products are in Storage");
-                Console.ResetColor();
             }
             if (Availability2)
             {
-                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Missing in Storage: ");
-                Console.ResetColor();
 
                 var MissingProducts = from product in _products
                                       where product.Number == 0
@@ -68,14 +64,14 @@ namespace Tests
                     Console.WriteLine(product.ToString());
                 }
             }
+            Assert.IsTrue(Availability1 || Availability2);
         }
 
         [TestMethod]
         public void OrderByAndGroupByTest()
         {
-            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Sort by quantity: ");
-            Console.ResetColor();
+            // Act
             var SortProducts = from product in _products
                                orderby product.Number
                                group product by product.Number;
@@ -86,21 +82,26 @@ namespace Tests
                     Console.Write("{0} ", p.Text);
                 Console.WriteLine();
             }
+            // Assert
+            Assert.AreEqual(SortProducts, SortProducts);
         }
 
         [TestMethod]
         public void SumMinMaxTest()
         {
+            // Act
             var SumProducts = _products.Sum(product => product.Number);
             Console.WriteLine("\nSum of all products in Storage: {0}", SumProducts);
+            // Assert
+            Assert.IsTrue(SumProducts != 0);
 
             var MinProducts = _products.Min(product => product.Number);
             Console.WriteLine("\nMinimum number of product: {0}", MinProducts);
+            Assert.IsNotNull(MinProducts);
 
             var MaxProducts = _products.Max(product => product.Number);
             Console.WriteLine("\nMaximum number of product: {0}", MaxProducts);
+            Assert.IsNotNull(MaxProducts);
         }
-
-
     }
 }
