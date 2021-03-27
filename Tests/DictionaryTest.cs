@@ -3,12 +3,14 @@ using System.Text;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Objects_Library;
+using System.Diagnostics;
 
 namespace Tests
 {
     [TestClass]
     public class DictionaryTest
     {
+        private Stopwatch stopwatch = new Stopwatch();
         private PersonGenerator generator = new PersonGenerator();
 
         public IList<Person> PersonListGenerator(int length)
@@ -56,92 +58,82 @@ namespace Tests
             }
         }
 
-        #region(DictionaryTests)
         [TestMethod]
-        public void Add100PersonsInDictionaryTest()
+        public void Add100PersonsTest()
         {
+            stopwatch.Restart();
             var dictionary = generator.WorkPlaceDictionary(100);
+            Console.WriteLine("In Dictionary: " + stopwatch.ElapsedMilliseconds + "ms");
             CollectionAssert.AllItemsAreNotNull(dictionary);
-        }
-
-        [TestMethod]
-        public void Add10000PersonsInDictionaryTest()
-        {
-            var dictionary = generator.WorkPlaceDictionary(10000);
-            CollectionAssert.AllItemsAreNotNull(dictionary);
-        }
-
-        [TestMethod]
-        public void Add100000PersonsInDictionaryTest()
-        {
-            var dictionary = generator.WorkPlaceDictionary(100000);
-            CollectionAssert.AllItemsAreNotNull(dictionary);
-        }
-
-        [TestMethod]
-        public void Add100PersonsInDictionaryConstHashCodeTest()
-        {
-            var dictionary = generator.WorkPlaceDictionaryConstHashCode(100);
-            CollectionAssert.AllItemsAreNotNull(dictionary);
-        }
-
-        [TestMethod]
-        public void Add10000PersonsInDictionaryConstHashCodeTest()
-        {
-            var dictionary = generator.WorkPlaceDictionaryConstHashCode(10000);
-            CollectionAssert.AllItemsAreNotNull(dictionary);
-        }
-
-        [TestMethod]
-        public void Add100000PersonsInDictionaryConstHashCodeTest()
-        {
-            var dictionary = generator.WorkPlaceDictionaryConstHashCode(100000);
-            CollectionAssert.AllItemsAreNotNull(dictionary);
-        }
-        #endregion
-
-        #region(ListTests)
-        [TestMethod]
-        public void Add100PersonsInListTest()
-        {
+            stopwatch.Restart();
             var persons = PersonListGenerator(100);
+            Console.WriteLine("In List: " + stopwatch.ElapsedMilliseconds + "ms");
             Assert.IsNotNull(persons);
         }
 
         [TestMethod]
-        public void Add10000PersonsInListTest()
+        public void Add10000PersonsTest()
         {
+            stopwatch.Restart();
+            var dictionary = generator.WorkPlaceDictionary(10000);
+            Console.WriteLine("In Dictionary: " + stopwatch.ElapsedMilliseconds + "ms");
+            CollectionAssert.AllItemsAreNotNull(dictionary);
+            stopwatch.Restart();
             var persons = PersonListGenerator(10000);
+            Console.WriteLine("In List: " + stopwatch.ElapsedMilliseconds + "ms");
             Assert.IsNotNull(persons);
         }
 
         [TestMethod]
-        public void Add100000PersonsInListTest()
+        public void Add100000PersonsTest()
         {
+            stopwatch.Restart();
+            var dictionary = generator.WorkPlaceDictionary(100000);
+            Console.WriteLine("In Dictionary: " + stopwatch.ElapsedMilliseconds + "ms");
+            CollectionAssert.AllItemsAreNotNull(dictionary);
+            stopwatch.Restart();
             var persons = PersonListGenerator(100000);
+            Console.WriteLine("In List: " + stopwatch.ElapsedMilliseconds + "ms");
             Assert.IsNotNull(persons);
         }
 
         [TestMethod]
-        public void Add100PersonsWithConstHashCodeInListTest()
+        public void Add100PersonsWithConstHashCodeTest()
         {
+            stopwatch.Restart();
+            var dictionary = generator.WorkPlaceDictionaryConstHashCode(100);
+            Console.WriteLine("In Dictionary: " + stopwatch.ElapsedMilliseconds + "ms");
+            CollectionAssert.AllItemsAreNotNull(dictionary);
+            stopwatch.Restart();
             var persons = PersonWithConstHashCodeListGenerator(100);
+            Console.WriteLine("In List: " + stopwatch.ElapsedMilliseconds + "ms");
             Assert.IsNotNull(persons);
         }
 
         [TestMethod]
-        public void Add10000PersonsWithConstHashCodeInListTest()
+        public void Add10000PersonsWithConstHashCodeTest()
         {
+            stopwatch.Restart();
+            var dictionary = generator.WorkPlaceDictionaryConstHashCode(10000);
+            Console.WriteLine("In Dictionary: " + stopwatch.ElapsedMilliseconds + "ms");
+            CollectionAssert.AllItemsAreNotNull(dictionary);
+            stopwatch.Restart();
             var persons = PersonWithConstHashCodeListGenerator(10000);
+            Console.WriteLine("In List: " + stopwatch.ElapsedMilliseconds + "ms");
             Assert.IsNotNull(persons);
         }
 
         [TestMethod]
-        public void Add100000PersonsWithConstHashCodeInListTest()
+        public void Add100000PersonsWithConstHashCodeTest()
         {
+            stopwatch.Restart();
+            var dictionary = generator.WorkPlaceDictionaryConstHashCode(100000);
+            Console.WriteLine("In Dictionary: " + stopwatch.ElapsedMilliseconds + "ms");
+            CollectionAssert.AllItemsAreNotNull(dictionary);
+            stopwatch.Restart();
             var persons = PersonWithConstHashCodeListGenerator(100000);
+            Console.WriteLine("In List: " + stopwatch.ElapsedMilliseconds + "ms");
             Assert.IsNotNull(persons);
         }
-        #endregion
     }
 }
