@@ -47,5 +47,20 @@ namespace Tests
             var pClone = new Person(p.FullName, p.BirthDay, p.BirthPlace, "11111111");
             Assert.IsTrue(dataBase.Search(pClone.GetHashCode()).ID == pClone.ID);
         }
+
+        [TestMethod]
+        public void PrintToHtml()
+        {
+            var p = generator.GeneratePerson();
+            p.HtmlDoc();
+            using (FileStream fileStream = File.OpenRead(Directory.GetCurrentDirectory() +
+                @"/" + p.FullName + ".html"))
+            {
+                byte[] htmlCode = new byte[fileStream.Length];
+                fileStream.Read(htmlCode, 0, htmlCode.Length);
+                string dataFromHtml = Encoding.Default.GetString(htmlCode);
+                Assert.IsFalse(p.ToString() == dataFromHtml);
+            }
+        }
     }
 }
