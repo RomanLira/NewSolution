@@ -49,7 +49,7 @@ namespace Tests
         }
 
         [TestMethod]
-        public void PrintToHtml()
+        public void PrintToHtmlTest()
         {
             var p = generator.GeneratePerson();
             p.HtmlDoc();
