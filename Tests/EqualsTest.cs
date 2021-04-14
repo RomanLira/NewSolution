@@ -17,7 +17,7 @@ namespace Tests
         public void Initialize()
         {
             _person1 = new Person("Petrov Petr Petrovich", "21-12-1995", "Krasnodar", "AA1488228");
-            _person2 = new Person("Petrov Petr Petrovich", "21-12-1995", "Krasnodar", "AA1488228");
+            _person2 = new Person("Petrov Petr Petrovich", "21-12-1995", "Krasnodar", "AA148822837");
             _person3 = new Person("Petrov Petr Ivanovich", "21-12-1995", "Sochi", "AA8228841");
         }
 

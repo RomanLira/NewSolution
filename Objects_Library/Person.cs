@@ -62,7 +62,7 @@ namespace Objects_Library
 
         public override string ToString()
         {
-            return string.Format(FullName + BirthDay + BirthPlace + ID);
+            return string.Format(FullName + " " + BirthDay + " " + BirthPlace + " " + ID);
         }
     }
 }

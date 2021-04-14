@@ -42,7 +42,7 @@ namespace Tests
         [TestMethod]
         public void ValueAvailableForKeyTest()
         {
-            var dictionary = generator.WorkPlaceDictionary(10000);
+            var dictionary = generator.CreateWorkPlaceDictionary(10000);
             var person = generator.GeneratePerson();
             Console.WriteLine("Person for search: {0}", person.ToString());
             string value = "";
@@ -62,7 +62,7 @@ namespace Tests
         public void Add100PersonsTest()
         {
             stopwatch.Restart();
-            var dictionary = generator.WorkPlaceDictionary(100);
+            var dictionary = generator.CreateWorkPlaceDictionary(100);
             Console.WriteLine("In Dictionary: " + stopwatch.ElapsedMilliseconds + "ms");
             CollectionAssert.AllItemsAreNotNull(dictionary);
             stopwatch.Restart();
@@ -75,7 +75,7 @@ namespace Tests
         public void Add10000PersonsTest()
         {
             stopwatch.Restart();
-            var dictionary = generator.WorkPlaceDictionary(10000);
+            var dictionary = generator.CreateWorkPlaceDictionary(10000);
             Console.WriteLine("In Dictionary: " + stopwatch.ElapsedMilliseconds + "ms");
             CollectionAssert.AllItemsAreNotNull(dictionary);
             stopwatch.Restart();
@@ -88,7 +88,7 @@ namespace Tests
         public void Add100000PersonsTest()
         {
             stopwatch.Restart();
-            var dictionary = generator.WorkPlaceDictionary(100000);
+            var dictionary = generator.CreateWorkPlaceDictionary(100000);
             Console.WriteLine("In Dictionary: " + stopwatch.ElapsedMilliseconds + "ms");
             CollectionAssert.AllItemsAreNotNull(dictionary);
             stopwatch.Restart();
@@ -101,7 +101,7 @@ namespace Tests
         public void Add100PersonsWithConstHashCodeTest()
         {
             stopwatch.Restart();
-            var dictionary = generator.WorkPlaceDictionaryConstHashCode(100);
+            var dictionary = generator.CreateWorkPlaceDictionaryConstHashCode(100);
             Console.WriteLine("In Dictionary: " + stopwatch.ElapsedMilliseconds + "ms");
             CollectionAssert.AllItemsAreNotNull(dictionary);
             stopwatch.Restart();
@@ -114,7 +114,7 @@ namespace Tests
         public void Add10000PersonsWithConstHashCodeTest()
         {
             stopwatch.Restart();
-            var dictionary = generator.WorkPlaceDictionaryConstHashCode(10000);
+            var dictionary = generator.CreateWorkPlaceDictionaryConstHashCode(10000);
             Console.WriteLine("In Dictionary: " + stopwatch.ElapsedMilliseconds + "ms");
             CollectionAssert.AllItemsAreNotNull(dictionary);
             stopwatch.Restart();
@@ -127,7 +127,7 @@ namespace Tests
         public void Add100000PersonsWithConstHashCodeTest()
         {
             stopwatch.Restart();
-            var dictionary = generator.WorkPlaceDictionaryConstHashCode(100000);
+            var dictionary = generator.CreateWorkPlaceDictionaryConstHashCode(100000);
             Console.WriteLine("In Dictionary: " + stopwatch.ElapsedMilliseconds + "ms");
             CollectionAssert.AllItemsAreNotNull(dictionary);
             stopwatch.Restart();

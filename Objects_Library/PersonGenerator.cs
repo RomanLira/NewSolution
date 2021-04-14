@@ -8,7 +8,9 @@ namespace Objects_Library
 {
     public class PersonGenerator
     {
-       public PersonGenerator() { }
+
+        private Random rand = new Random();
+        public PersonGenerator() { }
 
         private string[] _names =
          {
@@ -130,30 +132,6 @@ namespace Objects_Library
             "Sevastopol"
         };
 
-        private string[] _id =
-         {
-            "58014387",
-            "86176813",
-            "85436871",
-            "11454616",
-            "54048103",
-            "28382937",
-            "76557978",
-            "23314283",
-            "48904353",
-            "75510271",
-            "72658494",
-            "19892378",
-            "29829787",
-            "10847634",
-            "12982387",
-            "34887738",
-            "29867463",
-            "29878733",
-            "96654367",
-            "33727678"
-        };
-
         private string[] _companies =
          {
             "RosTeleKom",
@@ -168,15 +146,13 @@ namespace Objects_Library
             "DEX",
         };
 
-        private Random rand = new Random();
-
         public Person GeneratePerson()
         {
             return new Person(
-                _names[rand.Next(0, _names.Length)] + "" + _surnames[rand.Next(0, _surnames.Length)] + "" + _patronymic[rand.Next(0, _patronymic.Length)],
+                _surnames[rand.Next(0, _surnames.Length)] + " " + _names[rand.Next(0, _names.Length)] + " " + _patronymic[rand.Next(0, _patronymic.Length)],
                 _birthdays[rand.Next(0, _birthdays.Length)],
                 _birthplaces[rand.Next(0, _birthplaces.Length)],
-                _id[rand.Next(0,_id.Length)]
+                Convert.ToString(rand.Next(999999, 100000000))
                 );
         }
 
@@ -186,11 +162,11 @@ namespace Objects_Library
                _names[rand.Next(0, _names.Length)] + "" + _surnames[rand.Next(0, _surnames.Length)] + "" + _patronymic[rand.Next(0, _patronymic.Length)],
                _birthdays[rand.Next(0, _birthdays.Length)],
                _birthplaces[rand.Next(0, _birthplaces.Length)],
-               _id[rand.Next(0, _id.Length)]
+               Convert.ToString(rand.Next(999999, 100000000))
                );
         }
 
-        public Dictionary<Person, string> WorkPlaceDictionary(int length)
+        public Dictionary<Person, string> CreateWorkPlaceDictionary(int length)
         {
             var dictionary = new Dictionary<Person, string>();
             for (int i = 0; i < length; i++)
@@ -204,7 +180,7 @@ namespace Objects_Library
             return dictionary;
         }
 
-        public Dictionary<PersonWithConstHashCode, string> WorkPlaceDictionaryConstHashCode(int length)
+        public Dictionary<PersonWithConstHashCode, string> CreateWorkPlaceDictionaryConstHashCode(int length)
         {
             var dictionary = new Dictionary<PersonWithConstHashCode, string>();
             for (int i = 0; i < length; i++)
