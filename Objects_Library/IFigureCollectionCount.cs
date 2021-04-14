@@ -8,6 +8,6 @@ namespace Objects_Library
 {
     public interface IFigureCollectionCount<out T>
     {
-        int CollectionCount();
+        int GetCollectionCount();
     }
 }

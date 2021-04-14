@@ -12,12 +12,17 @@ namespace Objects_Library
         public delegate void Notifier(string message);
         public event Notifier Notify;
 
+        public PrintFigureInfo()
+        {
+            Notify += PrintMessage;
+        }
+
         public void PrintInfoThroughEvent(T figure)
         {
-            var message = figure.ToString() + " has Area: " + figure.Area()
-                + "; has Perimeter: " + figure.Perimeter();
-            if (Notify == null)
-                Notify += PrintMessage;
+            if (figure == null)
+                throw new ArgumentNullException("Figure cannot be null");
+            var message = figure.ToString() + " has Area: " + figure.GetArea()
+                + "; has Perimeter: " + figure.GetPerimeter();
             Notify?.Invoke(message);
         }
 

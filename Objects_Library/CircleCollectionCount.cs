@@ -26,7 +26,7 @@ namespace Objects_Library
             Console.WriteLine(message);
         }
 
-        public int CollectionCount()
+        public int GetCollectionCount()
         {
             Notify?.Invoke("Collection's count is calculated");
             return _circles.Count();

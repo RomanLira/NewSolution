@@ -10,7 +10,7 @@ namespace Tests
     public class CovarianceAndContravarianceTest
     {
         [TestMethod]
-        public void CircleCollectionCountCovarianceTest()
+        public void GetCircleCollectionCountCovarianceTest()
         {
             IFigureCollectionCount<BaseFigure> circles = new CircleCollectionCount<Circle>(new[]
             {
@@ -18,15 +18,15 @@ namespace Tests
                 new Circle(5),
                 new Circle(6)
             });
-            var message = circles.CollectionCount();
+            var message = circles.GetCollectionCount();
             Assert.IsNotNull(message);
         }
 
         [TestMethod]
         public void PrintFigureInfoContravarianceTest()
         {
-            IFigurePrintInfo<Rectangle> figure1 = new PrintFigureInfo<BaseFigure>();
-            figure1.PrintInfoThroughEvent(new Rectangle(2, 3));
+            IFigurePrintInfo<Rectangle> figure = new PrintFigureInfo<BaseFigure>();
+            figure.PrintInfoThroughEvent(new Rectangle(2, 3));
         }
     }
 }
