@@ -14,6 +14,16 @@ namespace Tests
         private PersonGenerator generator = new PersonGenerator();
 
         [TestMethod]
+        public void UniquePersonInBaseTest()
+        {
+            var p1 = generator.GeneratePerson();
+            var p2 = generator.GeneratePerson();
+            dataBase.Add(p1);
+            dataBase.Add(p2);
+            Assert.IsFalse(dataBase.IsPersonUnique(p2));
+        }
+
+        [TestMethod]
         public void AddDeleteTest()
         {
             var p1 = generator.GeneratePerson();
@@ -33,7 +43,7 @@ namespace Tests
                 var p = generator.GeneratePerson();
                 dataBase.Add(p);
             }
-            dataBase.Save();
+            dataBase.Save(Directory.GetCurrentDirectory() + @"/PersonCatalog.txt");
             dataBase.Load(Directory.GetCurrentDirectory() + @"/PersonCatalog.txt");
             Assert.IsTrue(100 == dataBase.Count());
         }
@@ -52,7 +62,7 @@ namespace Tests
         public void PrintToHtmlTest()
         {
             var p = generator.GeneratePerson();
-            p.HtmlDoc();
+            p.PrintToHtmlDoc();
             using (FileStream fileStream = File.OpenRead(Directory.GetCurrentDirectory() +
                 @"/" + p.FullName + ".html"))
             {

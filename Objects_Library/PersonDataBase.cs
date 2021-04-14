@@ -82,13 +82,11 @@ namespace Objects_Library
             _personDataBase.Remove(p.GetHashCode());
         }
 
-        public void Save()
+        public void Save(string path)
         {
-            var dataDirectory = Directory.GetCurrentDirectory();
-            using (var fileWriter = new StreamWriter(dataDirectory + @"/PersonCatalog.txt"))
+            using (var fileWriter = new StreamWriter(path))
                 foreach (var p in _personDataBase)
                     fileWriter.WriteLine(p.Key + " " + p.Value);
-            Console.WriteLine("Directory: " + dataDirectory);
         }
 
         public void Load(string path)
@@ -117,7 +115,7 @@ namespace Objects_Library
         {
             foreach (var p in _personDataBase)
             {
-                Console.WriteLine("{0} {1}", p.Key, p.Value);
+                Console.WriteLine(p.Value);
             }
             return string.Format("");
         }
