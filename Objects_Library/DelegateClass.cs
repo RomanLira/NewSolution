@@ -49,6 +49,8 @@ namespace Objects_Library
 
         public static DelegateClass operator +(DelegateClass first, DelegateClass second)
         {
+            if (first == null || second == null)
+                throw new ArgumentNullException();
             if(first == second)
             {
                 var newMethodList = new List<MethodInfo>();
@@ -64,8 +66,6 @@ namespace Objects_Library
 
         public static DelegateClass operator -(DelegateClass first, DelegateClass second)
         {
-            if (!first.SignatureOfMethod.Equals(second.SignatureOfMethod))
-                throw new InvalidOperationException("Signatures are not equal");
             if (first == second)
             {
                 first._methodList.Clear();
@@ -88,19 +88,16 @@ namespace Objects_Library
         {
             if (_methodList.Count == 0)
                 return null;
-            else
+            foreach (var method in _methodList)
             {
-                foreach (var method in _methodList)
+                try
                 {
-                    try
-                    {
-                        return method.Invoke(classInstance, parameters);
-                    }
-                    catch (Exception exception)
-                    {
-                        if (exception.InnerException != null)
-                            Console.WriteLine(exception.InnerException.Message);
-                    }
+                    return method.Invoke(classInstance, parameters);
+                }
+                catch (Exception exception)
+                {
+                    if (exception.InnerException != null)
+                        Console.WriteLine(exception.InnerException.Message);
                 }
             }
             return null;

@@ -16,13 +16,10 @@ namespace Objects_Library
         {
             if (parameters == null)
                 throw new ArgumentNullException("Parameters cannot be null");
-            else
+            Parameters = new ParameterInfo[parameters.Length];
+            for (int i = 0; i < parameters.Length; i++)
             {
-                Parameters = new ParameterInfo[parameters.Length];
-                for (int i =0; i<parameters.Length; i++)
-                {
-                    Parameters[i] = parameters[i];
-                }
+                Parameters[i] = parameters[i];
             }
             Type = type;
         }
